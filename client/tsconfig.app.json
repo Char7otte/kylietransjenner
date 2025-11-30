@@ -25,9 +25,7 @@
         "noUncheckedSideEffectImports": true,
 
         "paths": {
-            "@/*": ["./src/*"],
-            "@/features/*": ["./src/features/*"],
-            "@/types/*": ["./src/types/*"]
+            "@/*": ["./src/*"]
         }
     },
     "include": ["src"]
