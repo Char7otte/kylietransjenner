@@ -16,14 +16,14 @@ const posts = [
 ];
 
 function App() {
-    const date = new Date();
+    const currentDate = format(new Date(), "do MMMM yyyy");
 
     return (
         <>
             <main>
                 <section>
                     <h1 className={`text-center`}>Shar's Game Diary</h1>
-                    <p>Hello! It is {date.toString()}.</p>
+                    <p>Hello! It is {currentDate}.</p>
                 </section>
                 <section>
                     <Posts posts={posts} />
