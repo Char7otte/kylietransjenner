@@ -1,7 +1,9 @@
 export type Post = {
-    postID: string;
+    postID: number;
     title: string;
     game: string;
-    date: string;
+    coverImage: string;
+    uploadDate: string;
     content: string;
+    isPublished: boolean;
 };

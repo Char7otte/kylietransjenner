@@ -16,7 +16,7 @@ function PostsList() {
                         <h2>Title:{post.title}</h2>
                         <h2>ID: {post.postID}</h2>
                         <p>Game:{post.game}</p>
-                        <p>Date:{post.date}</p>
+                        <p>Date:{post.uploadDate}</p>
                         <p>Content:{post.content}</p>
                     </article>
                 );
