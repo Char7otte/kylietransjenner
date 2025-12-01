@@ -6,7 +6,7 @@ async function getAllPosts(req, res) {
     return res.status(200).json(posts);
 }
 
-async function getPost(req, res) {
+async function getPostByID(req, res) {
     const { postID } = req.params;
     const post = await PostModel.getPost(postID);
     if (!post) return res.status(404).json({ message: "PostID not found" });
@@ -15,5 +15,5 @@ async function getPost(req, res) {
 
 module.exports = {
     getAllPosts,
-    getPost,
+    getPostByID,
 };

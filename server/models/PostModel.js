@@ -22,7 +22,7 @@ async function getAllPosts() {
     }
 }
 
-async function getPost(postID) {
+async function getPostByID(postID) {
     let connection;
     try {
         connection = await sql.connect(config);
@@ -46,5 +46,5 @@ async function getPost(postID) {
 
 module.exports = {
     getAllPosts,
-    getPost,
+    getPostByID,
 };
