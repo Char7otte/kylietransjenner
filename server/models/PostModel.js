@@ -22,6 +22,29 @@ async function getAllPosts() {
     }
 }
 
+async function getPost(postID) {
+    let connection;
+    try {
+        connection = await sql.connect(config);
+        const query = `SELECT * FROM Post WHERE postID = @postID`;
+        const request = connection.request();
+        request.input("postID", postID);
+        const result = await request.query(query);
+        return result.recordset[0];
+    } catch (error) {
+        console.error("Database error:", error);
+    } finally {
+        if (connection) {
+            try {
+                await connection.close();
+            } catch (error) {
+                console.error("Error closing connection:", error);
+            }
+        }
+    }
+}
+
 module.exports = {
     getAllPosts,
+    getPost,
 };

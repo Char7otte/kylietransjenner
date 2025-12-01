@@ -11,6 +11,7 @@ const port = process.env.PORT || 8080;
 const PostController = require("./controllers/PostController.js");
 
 app.get("/api/post", PostController.getAllPosts);
+app.get("/api/post/:postID", PostController.getPost);
 
 app.all("{*splat}", (req, res) => {
     return res.status(404).json({ message: "What are you doing here?" });
