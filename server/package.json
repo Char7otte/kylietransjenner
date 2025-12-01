@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "change-case": "^5.4.4",
         "dotenv": "^17.2.3",
         "express": "^5.1.0",
         "mssql": "^12.1.1"
@@ -8,7 +9,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
-    "devDependencies": {},
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon ./app.js"
