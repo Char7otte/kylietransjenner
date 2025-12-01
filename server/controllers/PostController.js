@@ -1,6 +1,6 @@
 const PostModel = require("../models/PostModel");
 
-const { convertArrayOfObjects } = require("../utils/snakeToCamel");
+const { convertArrayOfObjects, convertObject } = require("../utils/snakeToCamel");
 
 async function getAllPosts(req, res) {
     const posts = await PostModel.getAllPosts();
@@ -12,8 +12,9 @@ async function getAllPosts(req, res) {
 
 async function getPostByID(req, res) {
     const { postID } = req.params;
-    const post = await PostModel.getPost(postID);
-    if (!post) return res.status(404).json({ message: "PostID not found" });
+    const post = await PostModel.getPostByID(postID);
+    if (!post) return res.status(404).json({ message: "postID not found" });
+    const camelCasePost = convertObject(post);
     return res.status(200).json(post);
 }
 
