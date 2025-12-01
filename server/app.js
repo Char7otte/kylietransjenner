@@ -8,26 +8,9 @@ const config = require("./dbConfig.js");
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.get("/api/post", async (req, res) => {
-    let connection;
-    try {
-        connection = await sql.connect(config);
-        const query = `SELECT * FROM Post`;
-        const request = connection.request();
-        const result = await request.query(query);
-        return res.json(result.recordset);
-    } catch (error) {
-        console.error("Database error:", error);
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (error) {
-                console.error("Error closing connection:", error);
-            }
-        }
-    }
-});
+const PostController = require("./controllers/PostController.js");
+
+app.get("/api/post", PostController.getAllPosts);
 
 app.all("{*splat}", (req, res) => {
     return res.status(404).json({ message: "What are you doing here?" });
