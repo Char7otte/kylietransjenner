@@ -10,10 +10,11 @@ function PostsList() {
 
     return (
         <>
-            {data.map((post: Post, index: number) => {
+            {data.map((post: Post) => {
                 return (
-                    <article key={index}>
+                    <article key={post.postID}>
                         <h2>Title:{post.title}</h2>
+                        <h2>ID: {post.postID}</h2>
                         <p>Game:{post.game}</p>
                         <p>Date:{post.date}</p>
                         <p>Content:{post.content}</p>
