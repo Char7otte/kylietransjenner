@@ -29,6 +29,8 @@ app.get("/api/post", async (req, res) => {
     }
 });
 
+app.all("{*splat}", (req, res) => {
+    return res.status(404).json({ message: "What are you doing here?" });
 });
 
 app.listen(port, () => {
