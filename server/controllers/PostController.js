@@ -1,9 +1,13 @@
 const PostModel = require("../models/PostModel");
 
+const { convertArrayOfObjects } = require("../utils/snakeToCamel");
+
 async function getAllPosts(req, res) {
     const posts = await PostModel.getAllPosts();
     if (posts.length == 0) return res.status(404).json({ message: "There are no posts on the server." });
-    return res.status(200).json(posts);
+    const camelCasePosts = convertArrayOfObjects(posts);
+
+    return res.status(200).json(camelCasePosts);
 }
 
 async function getPostByID(req, res) {
